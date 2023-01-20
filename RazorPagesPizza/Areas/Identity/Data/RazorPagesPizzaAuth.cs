@@ -1,10 +1,11 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using RazorPagesPizza.Areas.Identity.Data;
 
 namespace RazorPagesPizza.Areas.Identity.Data;
 
-public class RazorPagesPizzaAuth : IdentityDbContext<IdentityUser>
+public class RazorPagesPizzaAuth : IdentityDbContext<RazorPagesPizzaUser>
 {
     public RazorPagesPizzaAuth(DbContextOptions<RazorPagesPizzaAuth> options)
         : base(options)
