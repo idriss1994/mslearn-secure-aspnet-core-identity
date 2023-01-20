@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using RazorPagesPizza.Areas.Identity.Data;
+using RazorPagesPizza.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("RazorPagesPizzaAuthConnection");
@@ -13,6 +15,7 @@ builder.Services.AddDefaultIdentity<RazorPagesPizzaUser>(options => options.Sign
     .AddEntityFrameworkStores<RazorPagesPizzaAuth>();
 
 builder.Services.AddRazorPages();
+builder.Services.AddTransient<IEmailSender, EmailSender>();
 
 var app = builder.Build();
 
